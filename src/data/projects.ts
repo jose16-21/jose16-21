@@ -4,6 +4,7 @@ export const projectsData: ProjectsData = {
   projects: [
     {
       id: 1,
+      slug: 'sistema-gestion-empresarial-don-julio',
       title: 'Sistema de Gestión Empresarial',
       company: 'Distribuidora Don Julio S.A. y Distribuidora Anabel S.A.',
       country: 'Guatemala',
@@ -35,6 +36,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: 2,
+      slug: 'plataforma-ecommerce-multi-cliente-quickcomm',
       title: 'Plataforma Multi-Cliente',
       company: 'QuickComm Company',
       country: 'Perú',
@@ -65,6 +67,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: 3,
+      slug: 'gestion-facturacion-electronica-menoo',
       title: 'App de Gestión y Facturación Electrónica',
       company: 'Menoo App',
       country: 'Uruguay',
@@ -96,6 +99,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: 4,
+      slug: 'sistemas-financieros-creditos-banrural',
       title: 'Sistemas Financieros',
       company: 'Technology Center',
       country: 'Guatemala',
@@ -126,6 +130,7 @@ export const projectsData: ProjectsData = {
     },
     {
       id: 5,
+      slug: 'ventanilla-unica-virtual-villa-nueva',
       title: 'Ventanilla Única Virtual',
       company: 'USAID / Municipalidad Villa Nueva',
       country: 'Guatemala',

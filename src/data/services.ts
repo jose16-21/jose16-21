@@ -19,6 +19,66 @@ export const serviceCategories: ServiceCategory[] = categoryConfigs.map(c => c.i
 
 export const servicesData: Service[] = [
   {
+    id: 'mcp-starter',
+    title: 'MCP Starter — Tu Primer Servidor MCP',
+    shortDescription: 'Tu primer servidor MCP conectado a tus datos, en 2-3 semanas y a precio fijo',
+    businessOutcome: 'En menos de un mes tu equipo consulta tus propios sistemas y datos con IA, de forma segura y sin depender de demos: un servidor MCP en producción, conectado a una fuente real de tu negocio, con casos de uso funcionando.',
+    targetAudience: 'Empresas que quieren empezar con IA aplicada sobre sus datos reales, con alcance y precio cerrados en lugar de un proyecto abierto por horas.',
+    description: 'Paquete de precio fijo para arrancar con IA aplicada: diseño, construyo y despliego tu primer servidor MCP (Model Context Protocol) conectado a una fuente de datos o sistema de tu empresa (base de datos, API interna, CRM, documentos). Incluye definición del caso de uso de mayor impacto, control de accesos, despliegue y capacitación del equipo. Es la versión productizada del trabajo que realizo como Tech Lead integrando IA a productos en producción.',
+    category: 'consulting',
+    icon: 'fa-rocket',
+    features: [
+      'Alcance y precio cerrados: sin sorpresas de horas',
+      'Un servidor MCP conectado a una fuente de datos real',
+      'Caso de uso priorizado por impacto de negocio',
+      'Control de accesos y manejo seguro de credenciales',
+      'Despliegue en tu infraestructura o cloud',
+      'Capacitación del equipo para usarlo y extenderlo',
+      'Documentación y entrega de código fuente'
+    ],
+    technologies: ['MCP', 'Claude', 'Node.js', 'TypeScript', 'Docker', 'OpenAI / LLMs'],
+    price: {
+      type: 'fixed',
+      amount: 3000,
+      currency: 'USD',
+      period: 'precio fijo por paquete'
+    },
+    deliveryTime: '2-3 semanas',
+    featured: true,
+    available: true,
+    imageUrl: '/images/devops.png'
+  },
+  {
+    id: 'fractional-tech-lead',
+    title: 'Fractional Tech Lead (Retainer Mensual)',
+    shortDescription: 'Un Tech Lead senior en tu equipo, sin el costo de una contratación full-time',
+    businessOutcome: 'Tu equipo gana dirección técnica continua: decisiones de arquitectura acertadas, código revisado, prioridades claras y menos deuda técnica. Obtienes liderazgo probado en banca y fintech por una fracción del costo de contratarlo a tiempo completo.',
+    targetAudience: 'Startups y empresas con equipo de desarrollo propio que necesitan liderazgo técnico senior recurrente, sin abrir una posición full-time.',
+    description: 'Acompañamiento mensual como Tech Lead de tu equipo: revisión de arquitectura y código, decisiones técnicas, mentoría de desarrolladores, planificación con negocio y guardia sobre la calidad de lo que sale a producción. Es el rol que he ejercido liderando equipos en banca, fintech y productos SaaS durante más de 10 años, disponible por horas semanales fijas y renovable mes a mes.',
+    category: 'consulting',
+    icon: 'fa-user-tie',
+    features: [
+      'Horas semanales fijas de liderazgo técnico',
+      'Revisión de arquitectura y decisiones técnicas',
+      'Code review y estándares de calidad',
+      'Mentoría del equipo de desarrollo',
+      'Planificación técnica alineada al negocio',
+      'Participación en reuniones clave (planning, demos)',
+      'Renovable mes a mes, sin permanencia forzada'
+    ],
+    technologies: ['Arquitectura', 'Liderazgo técnico', 'Cloud', 'DevOps', 'IA aplicada'],
+    price: {
+      type: 'fixed',
+      amount: 2400,
+      currency: 'USD',
+      period: 'por mes (retainer)'
+    },
+    deliveryTime: 'Inicio en 1 semana',
+    featured: true,
+    available: true,
+    imageUrl: '/images/consulting.png'
+  },
+  {
     id: 'web-app-development',
     title: 'Desarrollo de Aplicaciones Web',
     shortDescription: 'Convierte una idea en un producto web en producción, listo para escalar',
@@ -30,7 +90,7 @@ export const servicesData: Service[] = [
     features: [
       'Aplicaciones SPA escalables (React, Vue o Angular)',
       'Arquitectura limpia y mantenible (SOLID, capas)',
-      'Integración con APIs RESTful y GraphQL',
+      'Integración con APIs RESTful',
       'Diseño responsive y mobile-first',
       'Optimización de rendimiento y SEO',
       'Despliegue automatizado CI/CD',
@@ -44,7 +104,7 @@ export const servicesData: Service[] = [
       period: 'por proyecto'
     },
     deliveryTime: '4-8 semanas',
-    featured: true,
+    featured: false,
     available: true,
     imageUrl: '/images/web-development.png'
   },
@@ -54,19 +114,19 @@ export const servicesData: Service[] = [
     shortDescription: 'Una sola base de código, presencia en iOS y Android',
     businessOutcome: 'Llegas a tus clientes en su celular con una app de calidad nativa, sin pagar dos desarrollos separados ni esperar el doble de tiempo.',
     targetAudience: 'Negocios que quieren un canal móvil propio: delivery, fintech, servicios y comercios con clientes recurrentes.',
-    description: 'Desarrollo aplicaciones móviles multiplataforma con React Native o Flutter: una experiencia fluida y nativa en iOS y Android desde una única base de código, lo que reduce costo y tiempo de mantenimiento. Tengo experiencia integrando apps con backends en producción (facturación electrónica, couriers, banca) y publicándolas en las tiendas.',
+    description: 'Desarrollo aplicaciones móviles multiplataforma con React Native: una experiencia fluida y nativa en iOS y Android desde una única base de código, lo que reduce costo y tiempo de mantenimiento. Tengo experiencia integrando apps con backends en producción (facturación electrónica, couriers, banca) y publicándolas en las tiendas.',
     category: 'mobile-development',
     icon: 'fa-mobile-alt',
     features: [
       'iOS y Android desde una única base de código',
-      'React Native o Flutter',
+      'React Native multiplataforma',
       'Integración con servicios backend y pagos',
       'Notificaciones push y actualizaciones OTA',
       'Autenticación y seguridad',
       'Publicación en App Store y Google Play',
       'Analytics y monitoreo integrado'
     ],
-    technologies: ['React Native', 'Flutter', 'Firebase', 'Redux'],
+    technologies: ['React Native', 'Firebase', 'Redux'],
     price: {
       type: 'project',
       amount: 3500,
@@ -74,7 +134,7 @@ export const servicesData: Service[] = [
       period: 'por proyecto'
     },
     deliveryTime: '6-10 semanas',
-    featured: true,
+    featured: false,
     available: true,
     imageUrl: '/images/mobile-development.png'
   },
@@ -296,11 +356,11 @@ export const servicesData: Service[] = [
     shortDescription: 'El motor que conecta tus apps, socios y sistemas',
     businessOutcome: 'Obtienes APIs seguras y bien documentadas que tus apps, integraciones y socios pueden consumir con confianza, listas para escalar sin convertirse en un cuello de botella.',
     targetAudience: 'Productos que necesitan un backend sólido, o empresas que deben exponer/consumir integraciones con terceros (bancos, pagos, couriers).',
-    description: 'Construyo APIs REST y GraphQL robustas con Node.js, NestJS, Express o Python. He desarrollado integraciones críticas con bancos y plataformas de pago (Open Banking, facturación SAT, couriers), donde la seguridad, el versionado y la documentación son esenciales. Entrego con autenticación, testing y despliegue en contenedores.',
+    description: 'Construyo APIs REST robustas con Node.js, NestJS, Express o Python. He desarrollado integraciones críticas con bancos y plataformas de pago (Open Banking, facturación SAT, couriers), donde la seguridad, el versionado y la documentación son esenciales. Entrego con autenticación, testing y despliegue en contenedores.',
     category: 'web-development',
     icon: 'fa-plug',
     features: [
-      'APIs RESTful y GraphQL con buenas prácticas',
+      'APIs RESTful con buenas prácticas',
       'Autenticación y autorización (JWT, OAuth)',
       'Documentación automática con Swagger',
       'Versionado, rate limiting y caching',
@@ -308,7 +368,7 @@ export const servicesData: Service[] = [
       'Testing automatizado',
       'Despliegue en contenedores'
     ],
-    technologies: ['Node.js', 'NestJS', 'Express', 'GraphQL', 'PostgreSQL'],
+    technologies: ['Node.js', 'NestJS', 'Express', 'PostgreSQL'],
     price: {
       type: 'project',
       amount: 1800,
@@ -422,7 +482,7 @@ export const servicesData: Service[] = [
     category: 'web-development',
     icon: 'fa-server',
     features: [
-      'Strapi CMS headless personalizado (API REST y GraphQL)',
+      'Strapi CMS headless personalizado (API REST)',
       'CloudFront CDN para distribución global',
       'ECS Fargate y Aurora PostgreSQL Serverless',
       'Almacenamiento de media en S3',
@@ -448,7 +508,7 @@ export const servicesData: Service[] = [
       period: 'por proyecto'
     },
     deliveryTime: '8-12 semanas',
-    featured: true,
+    featured: false,
     available: true,
     imageUrl: '/images/cloud-architecture.png'
   },
@@ -488,79 +548,49 @@ export const servicesData: Service[] = [
       period: 'por proyecto'
     },
     deliveryTime: '10-14 semanas',
-    featured: true,
+    featured: false,
     available: true,
     imageUrl: '/images/devops.png'
   },
   {
-    id: 'cybersecurity-audit-pentest',
-    title: 'Auditoría de Ciberseguridad y Pentesting',
-    shortDescription: 'Encuentra tus vulnerabilidades antes de que lo haga un atacante',
-    businessOutcome: 'Sabes exactamente dónde estás expuesto y qué arreglar primero, con un informe ejecutivo priorizado por riesgo y un plan de remediación claro. Proteges tus datos, tu operación y tu reputación.',
-    targetAudience: 'Empresas que manejan datos sensibles o pagos, y equipos que necesitan cumplir con estándares (PCI-DSS, GDPR, SOC2) o validar su seguridad.',
-    description: 'Servicio integral de seguridad: análisis de vulnerabilidades, pentesting, auditoría de código y plan de remediación basado en OWASP. Con certificación en desarrollo seguro y experiencia en banca, entrego dos informes —uno ejecutivo priorizado por riesgo y uno técnico con evidencias— para que tanto la gerencia como el equipo técnico sepan qué hacer y en qué orden.',
+    id: 'hardening-devsecops',
+    title: 'Hardening y DevSecOps',
+    shortDescription: 'Seguridad integrada a tu pipeline, no un parche al final',
+    businessOutcome: 'Tu plataforma y tu proceso de entrega quedan endurecidos: dependencias vigiladas, secretos protegidos, contenedores escaneados y accesos bajo control. La seguridad se valida en cada despliegue, no una vez al año.',
+    targetAudience: 'Equipos con sistemas en producción —especialmente banca, fintech y datos sensibles— que quieren integrar seguridad continua a su ciclo de desarrollo.',
+    description: 'Endurezco aplicaciones e infraestructura aplicando desarrollo seguro y DevSecOps: análisis de código y dependencias (SAST), escaneo de contenedores, gestión de secretos, IAM/RBAC y buenas prácticas OWASP integradas al pipeline CI/CD. Es la práctica que aplico en entornos bancarios y de fintech, donde la seguridad es requisito de operación, con certificación en desarrollo seguro como respaldo.',
     category: 'consulting',
     icon: 'fa-shield-alt',
     features: [
-      'Escaneo de vulnerabilidades (OWASP Top 10)',
-      'Penetration testing (black/grey/white box)',
-      'Auditoría de código (SAST) y dependencias',
-      'Seguridad en APIs, contenedores y cloud',
-      'Compliance assessment (PCI-DSS, GDPR, SOC2)',
-      'Informe ejecutivo priorizado por riesgo (CVSS)',
-      'Informe técnico con evidencias y remediación',
-      'Re-testing post remediación y hardening'
+      'Buenas prácticas OWASP en el ciclo de desarrollo',
+      'Análisis de código y dependencias (SAST, SCA)',
+      'Escaneo de contenedores e imágenes (Trivy)',
+      'Gestión segura de secretos y credenciales',
+      'Hardening de IAM/RBAC en cloud y Kubernetes',
+      'Security gates integrados al pipeline CI/CD',
+      'Plan de remediación priorizado por riesgo',
+      'Capacitación del equipo en desarrollo seguro'
     ],
     technologies: [
-      'OWASP ZAP',
-      'Burp Suite',
-      'Nmap',
       'SonarQube',
       'Snyk',
       'Trivy',
-      'Kali Linux',
+      'GitHub Actions',
+      'AWS IAM',
+      'Kubernetes RBAC',
+      'Secrets Manager',
       'Docker'
     ],
     price: {
       type: 'project',
-      amount: 4200,
+      amount: 2800,
       currency: 'USD',
-      period: 'por auditoría'
+      period: 'por proyecto'
     },
     deliveryTime: '2-3 semanas',
     featured: false,
     available: true,
     imageUrl: '/images/devops.png'
-  },
-  // Migrados de products.ts
-  {
-    id: 'database-design',
-    title: 'Diseño de Base de Datos',
-    shortDescription: 'Datos bien modelados: consultas rápidas y sin sorpresas al crecer',
-    businessOutcome: 'Tu aplicación responde rápido incluso con mucha información, y tus datos quedan estructurados para reportar, escalar y migrar sin dolores de cabeza.',
-    targetAudience: 'Productos con consultas lentas, modelos de datos improvisados o que anticipan un crecimiento fuerte de volumen.',
-    description: 'Diseño e implemento bases de datos escalables, SQL y NoSQL, con modelado optimizado, índices y estrategias de rendimiento. Con experiencia en SQL Server, PostgreSQL, MongoDB, DynamoDB y Cosmos DB en sistemas bancarios y de alta concurrencia, dejo el esquema documentado y con scripts de migración listos.',
-    category: 'consulting',
-    icon: 'fa-database',
-    features: [
-      'Modelado de datos optimizado (SQL y NoSQL)',
-      'Índices y optimización de consultas',
-      'Procedimientos almacenados',
-      'Estrategia de backup y recuperación',
-      'Scripts de migración',
-      'Documentación del esquema',
-      'Capacitación del equipo'
-    ],
-    technologies: ['PostgreSQL', 'SQL Server', 'MongoDB', 'MySQL', 'Redis'],
-    price: {
-      type: 'project',
-      amount: 800,
-      currency: 'USD'
-    },
-    deliveryTime: '2-3 semanas',
-    featured: false,
-    available: true,
-    imageUrl: '/images/cloud-architecture.png'
   },
   {
     id: 'technical-training-advanced',

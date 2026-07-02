@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { GetProjectsUseCase } from '../../domain/use-cases/GetProjectsUseCase';
 import { ProjectRepositoryImpl } from '../../infrastructure/repositories/ProjectRepositoryImpl';
@@ -82,7 +83,11 @@ const Portfolio: React.FC = () => {
               </div>
               <div className="p-5">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-xl font-bold text-dark flex-1">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-dark flex-1">
+                    <Link to={`/proyectos/${project.slug}`} className="hover:text-primary transition-colors">
+                      {project.title}
+                    </Link>
+                  </h3>
                   {project.url && (
                     <a
                       href={project.url}

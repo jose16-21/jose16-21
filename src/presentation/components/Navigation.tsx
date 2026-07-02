@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useCart } from '../../application/hooks/useCart';
-import { useAuth } from '../../application/hooks/useAuth';
-import { useModal } from '../../application/context/ModalContext';
 import LanguageSelector from './LanguageSelector';
-import { FaUser, FaChevronUp, FaChevronDown, FaShoppingBag, FaSignOutAlt, FaShoppingCart } from 'react-icons/fa';
+import { FaPaperPlane } from 'react-icons/fa';
 
 const Navigation: React.FC = () => {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const { itemCount } = useCart();
-  const { user, isAuthenticated, logout } = useAuth();
-  const { openLogin, openRegister, openProfile, openOrders } = useModal();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -78,13 +71,6 @@ const Navigation: React.FC = () => {
             <div className="flex items-center justify-center p-4 border-t border-gray-200">
               <LanguageSelector />
             </div>
-
-            {!isAuthenticated && (
-              <div className="flex items-center gap-2 p-4 border-t border-gray-200">
-                <button className="flex-1 px-4 py-2.5 text-sm font-semibold rounded-lg text-gray-dark border border-gray-light hover:border-primary hover:text-primary transition-all" onClick={() => { openLogin(); setIsMenuOpen(false); }}>{t('nav.login')}</button>
-                <button className="flex-1 px-4 py-2.5 text-sm font-semibold rounded-lg bg-gradient-primary text-white hover:shadow-lg transition-all" onClick={() => { openRegister(); setIsMenuOpen(false); }}>{t('nav.register')}</button>
-              </div>
-            )}
           </div>
 
           {/* Menú desktop */}
@@ -102,42 +88,14 @@ const Navigation: React.FC = () => {
               <LanguageSelector />
             </div>
 
-            {!isAuthenticated ? (
-              <div className="hidden lg:flex items-center gap-2">
-                <button className="px-4 py-2 text-sm font-semibold rounded-lg text-gray-dark border border-gray-light hover:border-primary hover:text-primary transition-all" onClick={openLogin}>{t('nav.login')}</button>
-                <button className="px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-primary text-white hover:shadow-lg transition-all" onClick={openRegister}>{t('nav.register')}</button>
-              </div>
-            ) : (
-              <div className="relative hidden lg:block">
-                <button aria-expanded={isUserMenuOpen} aria-haspopup="true" className="flex items-center gap-2 bg-white border border-gray-light text-primary px-4 py-2 rounded-lg cursor-pointer transition-all font-semibold text-sm hover:border-primary" onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
-                  <FaUser />
-                  <span>{user?.firstName}</span>
-                  {isUserMenuOpen ? <FaChevronUp className="text-xs" /> : <FaChevronDown className="text-xs" />}
-                </button>
-                {isUserMenuOpen && (
-                  <div className="absolute top-full right-0 bg-white border border-gray-200 rounded-lg shadow-xl min-w-[200px] mt-2 overflow-hidden">
-                    <a href="#profile" className="flex items-center gap-3 px-4 py-3 text-gray-dark no-underline transition-all border-b border-gray-lighter font-medium text-sm hover:bg-gray-lighter hover:text-primary" onClick={(e) => { e.preventDefault(); openProfile(); setIsUserMenuOpen(false); }}>
-                      <FaUser className="w-4" />{t('nav.profile')}
-                    </a>
-                    <a href="#orders" className="flex items-center gap-3 px-4 py-3 text-gray-dark no-underline transition-all border-b border-gray-lighter font-medium text-sm hover:bg-gray-lighter hover:text-primary" onClick={(e) => { e.preventDefault(); openOrders(); setIsUserMenuOpen(false); }}>
-                      <FaShoppingBag className="w-4" />{t('nav.orders')}
-                    </a>
-                    <a href="#logout" className="flex items-center gap-3 px-4 py-3 text-gray-dark no-underline transition-all font-medium text-sm hover:bg-gray-lighter hover:text-error" onClick={(e) => { e.preventDefault(); logout(); setIsUserMenuOpen(false); }}>
-                      <FaSignOutAlt className="w-4" />{t('nav.logout')}
-                    </a>
-                  </div>
-                )}
-              </div>
-            )}
-
-            <Link
-              to="/carrito"
-              aria-label={t('nav.openCart')}
-              className="relative bg-gradient-primary text-white rounded-lg w-11 h-11 flex items-center justify-center cursor-pointer transition-all hover:shadow-lg"
+            <a
+              href="#contacto"
+              onClick={(e) => handleNavClick(e, '#contacto')}
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-primary text-white hover:shadow-lg transition-all"
             >
-              <FaShoppingCart aria-hidden="true" />
-              {itemCount > 0 && (<span aria-hidden="true" className="absolute -top-1 -right-1 bg-error text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">{itemCount}</span>)}
-            </Link>
+              <FaPaperPlane className="text-xs" aria-hidden="true" />
+              {t('services.requestProposal')}
+            </a>
 
             <button
               aria-label={t('nav.toggleMenu')}

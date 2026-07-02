@@ -17,8 +17,10 @@ import { preview } from 'vite';
 import puppeteer from 'puppeteer-core';
 import path from 'node:path';
 import fs from 'node:fs/promises';
+import { getRoutes } from './site-routes.mjs';
 
-const ROUTES = ['/', '/carrito'];
+// Todas las rutas indexables (home + servicios + proyectos), derivadas de los data files.
+const ROUTES = getRoutes();
 const PORT = Number(process.env.PRERENDER_PORT || 4179);
 const DIST = path.resolve('dist');
 // Selector que confirma que el contenido dinámico ya se renderizó.

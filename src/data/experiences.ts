@@ -4,7 +4,29 @@ export const experiencesData: ExperienceData = {
   timeline: [
     {
       id: 1,
-      period: '2023 - Presente',
+      period: 'Jun 2026 - Presente',
+      title: 'Tech Lead & Arquitecto de Soluciones',
+      company: 'dX Latam',
+      country: 'Guatemala',
+      countryFlag: '🇬🇹',
+      remote: true,
+      companyUrl: 'https://dxlatam.com/',
+      companyLogo: 'https://dxlatam.com/favicon.ico',
+      description: 'Lidero la ejecución técnica de proyectos estratégicos: arquitecturas de software, integraciones empresariales y soluciones cloud escalables. Actúo como referente técnico entre negocio, gestión de proyectos y equipos de desarrollo, e impulso la adopción de IA aplicada al desarrollo mediante agentes inteligentes y flujos asistidos por modelos de lenguaje.',
+      skills: [
+        'Arquitectura de soluciones',
+        'Integraciones empresariales',
+        'IA aplicada · agentes y LLMs',
+        'Oracle HCM · Eloqua',
+        'TypeScript',
+        'Cloud & DevOps',
+        'Estimaciones y análisis técnico'
+      ],
+      delay: 0
+    },
+    {
+      id: 2,
+      period: 'Oct 2023 - May 2026',
       title: 'Tech Lead',
       company: 'Capital Valley Tech',
       country: 'Guatemala',
@@ -12,7 +34,7 @@ export const experiencesData: ExperienceData = {
       remote: true,
       companyUrl: 'https://www.capitalvalleytech.com/',
       companyLogo: 'https://www.capitalvalleytech.com/favicon.ico',
-      description: 'Lidero el desarrollo end-to-end de un ATS (Applicant Tracking System) y un equipo de 5 desarrolladores. Diseñé la infraestructura sobre AWS EKS (multi-AZ, HPA, autoscaling, IAM/RBAC) con IaC en Terraform y CI/CD en GitHub Actions y Azure DevOps. Integré IA al ciclo de desarrollo, diseñando servidores MCP, agentes y skills.',
+      description: 'Lideré el desarrollo end-to-end de un ATS (Applicant Tracking System) y un equipo de 5 desarrolladores. Diseñé la infraestructura sobre AWS EKS (multi-AZ, HPA, autoscaling, IAM/RBAC) con IaC en Terraform y CI/CD en GitHub Actions y Azure DevOps. Integré IA al ciclo de desarrollo, diseñando servidores MCP, agentes y skills.',
       skills: [
         'AWS EKS (multi-AZ, HPA)',
         'Terraform / IaC',
@@ -24,10 +46,10 @@ export const experiencesData: ExperienceData = {
         'CI/CD Pipelines',
         'System Design'
       ],
-      delay: 0
+      delay: 100
     },
     {
-      id: 2,
+      id: 3,
       period: '2022 - 2023',
       title: 'Sr. Full Stack Developer',
       company: 'Finerio Connect',
@@ -46,10 +68,10 @@ export const experiencesData: ExperienceData = {
         'Fintech',
         'Web Scraping'
       ],
-      delay: 100
+      delay: 200
     },
     {
-      id: 3,
+      id: 4,
       period: '2021 - 2022',
       title: 'Sr. Backend Developer',
       company: 'Rappi',
@@ -68,10 +90,10 @@ export const experiencesData: ExperienceData = {
         'Docker',
         'Redis'
       ],
-      delay: 200
+      delay: 300
     },
     {
-      id: 4,
+      id: 5,
       period: '2019 - 2021',
       title: 'Analista Programador',
       company: 'Business Development Group',
@@ -89,10 +111,10 @@ export const experiencesData: ExperienceData = {
         'Azure DevOps',
         'Banking Systems'
       ],
-      delay: 300
+      delay: 400
     },
     {
-      id: 5,
+      id: 6,
       period: '2014 - 2018',
       title: 'Analista Programador',
       company: 'E-Solutions S.A.',
@@ -109,7 +131,7 @@ export const experiencesData: ExperienceData = {
         'Financial Software',
         'SOAP/REST'
       ],
-      delay: 400
+      delay: 500
     }
   ],
   achievements: [
