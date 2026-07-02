@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Service, ServiceCategory } from '../../domain/entities/Service';
 import { ServiceRepositoryImpl } from '../../infrastructure/repositories/ServiceRepositoryImpl';
 import { GetServicesUseCase } from '../../domain/use-cases/GetServicesUseCase';
-import { useCart } from '../../application/hooks/useCart';
-import { NotificationManager } from '../../infrastructure/services/NotificationManager';
-import ServiceDetailModal from './ServiceDetailModal';
-import { FaTh, FaChevronLeft, FaChevronRight, FaStar, FaCheck, FaClock, FaInfoCircle, FaCartPlus, FaInbox } from 'react-icons/fa';
+import { FaTh, FaChevronLeft, FaChevronRight, FaStar, FaCheck, FaClock, FaInfoCircle, FaPaperPlane, FaInbox, FaChevronRight as FaArrow } from 'react-icons/fa';
 import { faIconMap } from '../utils/faIconMap';
 import { CategoryConfig } from '../../domain/repositories/ServiceRepository';
 
@@ -16,10 +14,6 @@ const Services: React.FC = () => {
   const [categoryConfigs, setCategoryConfigs] = useState<CategoryConfig[]>([]);
   const [filter, setFilter] = useState<ServiceCategory | 'all'>('all');
   const [loading, setLoading] = useState(true);
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { addToCart } = useCart();
-  const notificationManager = new NotificationManager();
 
   const serviceRepository = new ServiceRepositoryImpl();
   const getServicesUseCase = new GetServicesUseCase(serviceRepository);
@@ -53,23 +47,10 @@ const Services: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
-  const handleViewDetails = (service: Service) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedService(null);
-  };
-
-  const handleAddToCart = (service: Service) => {
-    addToCart(service);
-    notificationManager.show({
-      message: `${service.title} ${t('cart.added')}`,
-      type: 'success'
-    });
-  };
+  // Con filtro "all": tarjetas completas solo para los servicios insignia;
+  // el resto se lista compacto en "Otros servicios".
+  const cardServices = filter === 'all' ? services.filter((s) => s.featured) : services;
+  const otherServices = filter === 'all' ? services.filter((s) => !s.featured) : [];
 
   return (
     <section className="py-24 bg-white" id="servicios">
@@ -130,7 +111,7 @@ const Services: React.FC = () => {
           <div className="relative">
             {/* Grid normal en desktop, scroll horizontal en móvil */}
             <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 flex md:flex-none overflow-x-auto snap-x snap-mandatory gap-4 pb-4 px-4 md:px-0 scrollbar-hide">
-              {services.map(service => (
+              {cardServices.map(service => (
                 <div
                   key={service.id}
                   className="group bg-white rounded-2xl shadow-lg border border-gray-200 transition-all relative overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:border-primary/50 snap-center flex-shrink-0 w-[85vw] md:w-auto"
@@ -210,37 +191,38 @@ const Services: React.FC = () => {
 
                       {/* Botones de acción - aparecen en hover (solo desktop) */}
                       <div className="hidden md:flex absolute inset-0 gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
-                        <button
-                          className="flex-1 bg-white text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary hover:text-white transition-colors text-xs"
-                          onClick={() => handleViewDetails(service)}
+                        <Link
+                          to={`/servicios/${service.id}`}
+                          className="flex-1 flex items-center justify-center bg-white text-primary font-semibold rounded-lg border-2 border-primary hover:bg-primary hover:text-white transition-colors text-xs"
                         >
                           {t('services.details')}
-                        </button>
-                        <button
-                          className="flex-1 bg-gradient-primary text-white font-semibold rounded-lg text-xs"
-                          onClick={() => handleAddToCart(service)}
+                        </Link>
+                        <Link
+                          to={`/?service=${service.id}#contacto`}
+                          className="flex-1 flex items-center justify-center gap-1 bg-gradient-primary text-white font-semibold rounded-lg text-xs"
                         >
-                          {t('services.addToCart')}
-                        </button>
+                          <FaPaperPlane className="text-[10px]" />
+                          {t('services.requestProposal')}
+                        </Link>
                       </div>
                     </div>
 
                     {/* Botones de acción móvil - siempre visibles */}
                     <div className="md:hidden flex gap-2 mt-3">
-                      <button
-                        className="flex-1 bg-white text-primary font-semibold rounded-lg border-2 border-primary py-2 text-xs"
-                        onClick={() => handleViewDetails(service)}
+                      <Link
+                        to={`/servicios/${service.id}`}
+                        className="flex-1 inline-flex items-center justify-center bg-white text-primary font-semibold rounded-lg border-2 border-primary py-2 text-xs"
                       >
                         <FaInfoCircle className="mr-1" />
                         {t('services.details')}
-                      </button>
-                      <button
-                        className="flex-1 bg-gradient-primary text-white font-semibold rounded-lg py-2 text-xs"
-                        onClick={() => handleAddToCart(service)}
+                      </Link>
+                      <Link
+                        to={`/?service=${service.id}#contacto`}
+                        className="flex-1 inline-flex items-center justify-center bg-gradient-primary text-white font-semibold rounded-lg py-2 text-xs"
                       >
-                        <FaCartPlus className="mr-1" />
-                        {t('services.addToCart')}
-                      </button>
+                        <FaPaperPlane className="mr-1" />
+                        {t('services.requestProposal')}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -248,14 +230,37 @@ const Services: React.FC = () => {
             </div>
 
             {/* Indicador de scroll en móvil */}
-            {!loading && services.length > 0 && (
+            {!loading && cardServices.length > 0 && (
               <div className="md:hidden flex justify-center gap-1 mt-4">
-                {services.map((_, index) => (
+                {cardServices.map((_, index) => (
                   <div
                     key={index}
                     className="w-2 h-2 rounded-full bg-gray-300"
                   ></div>
                 ))}
+              </div>
+            )}
+
+            {/* Otros servicios — listado compacto con enlace a su página */}
+            {otherServices.length > 0 && (
+              <div className="mt-12">
+                <h3 className="text-xl font-bold text-dark mb-4 text-center">{t('services.otherServices')}</h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-4 md:px-0">
+                  {otherServices.map((service) => (
+                    <li key={service.id}>
+                      <Link
+                        to={`/servicios/${service.id}`}
+                        className="group/other flex items-center justify-between gap-3 bg-gray-50 hover:bg-white rounded-xl border border-gray-200 hover:border-primary/50 hover:shadow-md transition-all p-4 h-full"
+                      >
+                        <div className="min-w-0">
+                          <span className="font-semibold text-dark text-sm block group-hover/other:text-primary transition-colors">{service.title}</span>
+                          <span className="text-xs text-gray-medium line-clamp-1">{service.shortDescription}</span>
+                        </div>
+                        <FaArrow className="text-gray-300 group-hover/other:text-primary text-xs flex-shrink-0 transition-colors" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>
@@ -267,14 +272,6 @@ const Services: React.FC = () => {
           </div>
         )}
       </div>
-
-      {/* Modal de Detalles del Servicio */}
-      <ServiceDetailModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        service={selectedService}
-        onAddToCart={handleAddToCart}
-      />
     </section>
   );
 };

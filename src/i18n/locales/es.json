@@ -6,17 +6,11 @@
     "portfolio": "Portafolio",
     "experience": "Experiencia",
     "contact": "Contacto",
-    "login": "Iniciar Sesión",
-    "register": "Registrarse",
-    "logout": "Cerrar Sesión",
-    "profile": "Perfil",
-    "orders": "Mis Pedidos",
     "ariaLabel": "Navegación principal",
-    "openCart": "Abrir carrito de compras",
     "toggleMenu": "Abrir menú de navegación"
   },
   "hero": {
-    "available": "Disponible para nuevos proyectos",
+    "available": "Tech Lead & Arquitecto de Soluciones · dX Latam",
     "title": "Transformo ideas",
     "titleHighlight": "en soluciones digitales",
     "description": "Más de 10 años diseñando arquitecturas escalables, liderando equipos técnicos y entregando productos que generan impacto real en empresas de Latinoamérica.",
@@ -42,7 +36,6 @@
     "title": "Servicios Profesionales",
     "subtitle": "Soluciones tecnológicas completas para impulsar tu negocio al siguiente nivel",
     "details": "Detalles",
-    "addToCart": "Agregar",
     "popular": "Popular",
     "weeks": "semanas",
     "swipeMore": "Desliza para ver más",
@@ -52,7 +45,9 @@
       "web-development": "Desarrollo Web",
       "cloud-devops": "Cloud & DevOps",
       "consulting": "Consultoría"
-    }
+    },
+    "requestProposal": "Solicitar propuesta",
+    "otherServices": "Otros servicios"
   },
   "technologies": {
     "title": "Stack Tecnológico",
@@ -62,7 +57,8 @@
     "title": "Proyectos Destacados",
     "subtitle": "Una selección de mis trabajos más relevantes",
     "viewProject": "Ver Proyecto",
-    "private": "Privado"
+    "private": "Privado",
+    "achievements": "Logros Destacados"
   },
   "experience": {
     "title": "Experiencia Profesional",
@@ -97,7 +93,8 @@
       "sending": "Enviando...",
       "success": "¡Mensaje enviado exitosamente! Te contactaré pronto.",
       "error": "Error al enviar el mensaje. Por favor intenta de nuevo.",
-      "recaptchaError": "Por favor, completa la verificación reCAPTCHA"
+      "recaptchaError": "Por favor, completa la verificación reCAPTCHA",
+      "proposalMessage": "Hola, me interesa el servicio «{{service}}». Me gustaría recibir una propuesta con alcance y tiempos."
     },
     "serviceOptions": {
       "web": "Desarrollo Web Full-Stack",
@@ -133,98 +130,6 @@
       "databases": "Bases de Datos"
     }
   },
-  "cart": {
-    "title": "Mi Carrito de Compras",
-    "empty": "Tu carrito está vacío",
-    "emptyDescription": "Explora nuestros servicios profesionales y comienza a construir tu proyecto",
-    "explore": "Explorar Servicios",
-    "back": "Volver a servicios",
-    "servicesInCart": "servicios en tu carrito",
-    "serviceInCart": "servicio en tu carrito",
-    "clearCart": "Vaciar carrito",
-    "confirmClear": "¿Estás seguro de que deseas vaciar el carrito?",
-    "selectedServices": "Servicios Seleccionados",
-    "featuresIncluded": "Características incluidas:",
-    "deliveryTime": "Tiempo de entrega:",
-    "customization": "Personalización:",
-    "quantity": "Cantidad:",
-    "unitPrice": "Precio unitario",
-    "summary": "Resumen",
-    "totalProducts": "Total de productos",
-    "uniqueServices": "Servicios únicos",
-    "total": "Total:",
-    "comments": "Comentarios",
-    "commentsOptional": "(Opcional)",
-    "commentsPlaceholder": "Requisitos especiales, preferencias de tecnología, plazos específicos...",
-    "quoteMode": "Solicitar cotización sin costo",
-    "quoteModeDescription": "Te contactaremos con precios personalizados y detalles del proyecto.",
-    "loginRequired": "Inicia sesión para proceder con la compra",
-    "proceedPayment": "Proceder al Pago",
-    "requestQuote": "Solicitar Cotización",
-    "processing": "Procesando...",
-    "securePayment": "Pago seguro - Simulación",
-    "quoteByEmail": "Cotización por email",
-    "quote": "Cotización",
-    "removed": "eliminado del carrito",
-    "cleared": "Carrito vaciado",
-    "added": "agregado al carrito",
-    "quoteSuccess": "¡Cotización enviada! Te contactaremos pronto.",
-    "orderSuccess": "¡Orden procesada! Recibirás un email de confirmación.",
-    "checkoutError": "Error al procesar. Intenta de nuevo."
-  },
-  "auth": {
-    "login": {
-      "title": "Bienvenido",
-      "subtitle": "Inicia sesión para continuar",
-      "email": "Email",
-      "password": "Contraseña",
-      "submit": "Iniciar Sesión",
-      "submitting": "Iniciando...",
-      "noAccount": "¿No tienes cuenta?",
-      "registerHere": "Regístrate aquí",
-      "success": "¡Sesión iniciada exitosamente!",
-      "error": "Error al iniciar sesión. Intenta de nuevo."
-    },
-    "register": {
-      "title": "Crear Cuenta",
-      "subtitle": "Regístrate para continuar",
-      "firstName": "Nombre",
-      "lastName": "Apellido",
-      "email": "Email",
-      "password": "Contraseña",
-      "confirmPassword": "Confirmar",
-      "company": "Empresa",
-      "phone": "Teléfono",
-      "optional": "(opcional)",
-      "submit": "Crear Cuenta",
-      "submitting": "Creando cuenta...",
-      "hasAccount": "¿Ya tienes cuenta?",
-      "loginHere": "Inicia sesión aquí",
-      "success": "¡Cuenta creada exitosamente!",
-      "error": "Error al crear la cuenta. Intenta de nuevo.",
-      "validation": {
-        "required": "Requerido",
-        "invalidEmail": "Email inválido",
-        "minPassword": "Mín. 6 caracteres",
-        "passwordMismatch": "No coinciden"
-      }
-    }
-  },
-  "profile": {
-    "title": "Mi Perfil",
-    "subtitle": "Administra tu información personal",
-    "update": "Actualizar Perfil",
-    "cancel": "Cancelar",
-    "success": "¡Perfil actualizado exitosamente!",
-    "error": "Error al actualizar el perfil."
-  },
-  "orders": {
-    "title": "Mis Pedidos",
-    "empty": "Aún no tienes pedidos",
-    "emptyDescription": "Cuando realices una compra, tus pedidos aparecerán aquí",
-    "explore": "Explorar Servicios",
-    "viewDetails": "Ver Detalles"
-  },
   "serviceDetail": {
     "businessOutcome": "Resultado para tu negocio",
     "audience": "Ideal para:",
@@ -233,14 +138,12 @@
     "technologies": "Tecnologías Utilizadas",
     "price": "por proyecto",
     "delivery": "Entrega:",
-    "addToCart": "Agregar al Carrito",
     "contactNow": "Contactar Ahora",
     "available": "Disponible Ahora",
     "unavailable": "No Disponible"
   },
   "meta": {
-    "titleHome": "Juan José Hernández | Consultor de Desarrollo y Tecnología",
-    "titleCart": "Carrito | Juan José Hernández"
+    "titleHome": "Juan José Hernández | Consultor de Desarrollo y Tecnología"
   },
   "common": {
     "loading": "Cargando...",

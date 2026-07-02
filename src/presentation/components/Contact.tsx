@@ -1,7 +1,20 @@
 import React, { useState, FormEvent, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaCheck, FaCopy, FaSpinner, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { ClipboardUtils } from '../../utils';
+import { servicesData } from '../../data/services';
+import { ServiceCategory } from '../../domain/entities/Service';
+
+/** Mapea la categoría del servicio a las opciones del select del formulario. */
+const categoryToOption: Record<ServiceCategory, string> = {
+  'web-development': 'web',
+  'mobile-development': 'mobile',
+  'consulting': 'consultoria',
+  'devops': 'devops',
+  'cloud-architecture': 'devops',
+  'training': 'capacitacion'
+};
 
 declare global {
   interface Window {
@@ -16,9 +29,10 @@ declare global {
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
-  
+
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -27,6 +41,21 @@ const Contact: React.FC = () => {
     servicio: '',
     mensaje: ''
   });
+
+  // Precarga desde "Solicitar propuesta" (?service=<id>): selecciona el servicio
+  // y redacta el mensaje inicial con el nombre del servicio elegido.
+  useEffect(() => {
+    const serviceId = new URLSearchParams(location.search).get('service');
+    if (!serviceId) return;
+    const service = servicesData.find((s) => s.id === serviceId);
+    if (!service) return;
+    setFormData((prev) => ({
+      ...prev,
+      servicio: categoryToOption[service.category] ?? 'consultoria',
+      mensaje: prev.mensaje || t('contact.form.proposalMessage', { service: service.title })
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.search]);
 
   const [recaptchaError, setRecaptchaError] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);

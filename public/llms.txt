@@ -32,27 +32,29 @@ C#/.NET y .NET Core, TypeScript, JavaScript, Node.js (Express, NestJS, AdonisJS)
 
 ## Servicios
 
+- MCP Starter — Tu Primer Servidor MCP — USD 3,000 (precio fijo por paquete). Servidor MCP funcional conectado a tus sistemas, en 2-3 semanas.
+- Fractional Tech Lead (Retainer Mensual) — USD 2,400/mes. Liderazgo técnico senior part-time: arquitectura, code reviews y mentoría del equipo.
 - Desarrollo de Aplicaciones Web — desde USD 2,500. React, Vue, Angular, Next.js; APIs e integración cloud.
-- Desarrollo de Aplicaciones Móviles — desde USD 3,500. iOS y Android con React Native o Flutter.
+- Desarrollo de Aplicaciones Móviles — desde USD 3,500. iOS y Android con React Native.
 - DevOps y Automatización — por hora. CI/CD, contenedores, Kubernetes e IaC.
 - Arquitectura Cloud — desde USD 4,000. Soluciones escalables en AWS, Azure y GCP.
 - Consultoría Tecnológica — por hora. Arquitectura, selección de stack, auditorías y optimización.
 - CMS Headless con Strapi en AWS — desde USD 5,500. Arquitectura enterprise: CloudFront, ECS Fargate, Aurora, S3.
 - Infraestructura como Código Multi-Cloud — desde USD 6,800. Terraform para AWS, Azure y GCP con CI/CD.
-- Auditoría de Ciberseguridad y Pentesting — desde USD 4,200. Vulnerabilidades, pentesting y remediación OWASP.
+- Hardening y DevSecOps — desde USD 2,800 por proyecto. SAST/SCA, escaneo de contenedores (Trivy), gestión de secretos, IAM/RBAC, remediación OWASP y security gates en CI/CD.
 - Integración de IA y agentes (MCP) — por hora. Diseño y despliegue de servidores MCP, agentes y skills.
 - Observabilidad y Monitoreo (SRE) — desde USD 2,800. Logs, métricas, dashboards y alertas con Grafana, Prometheus, CloudWatch, Datadog y Loki; on-call.
 - Integración Bancaria y Open Banking — desde USD 5,000. Open Banking / Open Finance, agregación de datos financieros e integración con bancos.
 - Facturación Electrónica (SAT / e-Factura) — desde USD 1,500. Emisión integrada a aplicaciones web y móviles, conectada al flujo de ventas.
 - Modernización de Sistemas Legacy — desde USD 7,500. Migración por fases de monolitos y legacy a microservicios, sin detener la operación.
-- Desarrollo de APIs — desde USD 1,800. REST y GraphQL escalables y seguras.
+- Desarrollo de APIs — desde USD 1,800. APIs REST escalables y seguras.
 - Soluciones E-commerce — desde USD 3,200. Tiendas online con pasarelas de pago.
-- Diseño de Base de Datos — desde USD 800. Modelado, optimización y migraciones.
 - Capacitación Técnica — desde USD 600. Workshops y mentoría en tecnologías modernas.
 
 ## Experiencia profesional
 
-- Capital Valley Tech (HR Tech) — Tech Lead, remoto, Guatemala (2023–presente). Lideró el desarrollo end-to-end de un ATS (Applicant Tracking System); diseñó la infraestructura sobre AWS EKS (multi-AZ, HPA, autoscaling, IAM/RBAC); IaC con Terraform; CI/CD en GitHub Actions y Azure DevOps; integró IA al desarrollo y diseñó servidores MCP, agentes y skills. Lideró un equipo de 5 developers.
+- dX Latam (Consultoría) — Tech Lead & Arquitecto de Soluciones, remoto, Guatemala (jun. 2026–presente). Lidera la ejecución técnica de proyectos estratégicos: arquitecturas de software, integraciones empresariales y soluciones cloud escalables; impulsa la adopción de IA aplicada al desarrollo con agentes y flujos asistidos por LLMs.
+- Capital Valley Tech (HR Tech) — Tech Lead, remoto, Guatemala (2023–2026). Lideró el desarrollo end-to-end de un ATS (Applicant Tracking System); diseñó la infraestructura sobre AWS EKS (multi-AZ, HPA, autoscaling, IAM/RBAC); IaC con Terraform; CI/CD en GitHub Actions y Azure DevOps; integró IA al desarrollo y diseñó servidores MCP, agentes y skills. Lideró un equipo de 5 developers.
 - Finerio Connect (Fintech) — Senior Full Stack Developer, remoto, México (2022–2023). Open Banking / Open Finance; crawlers y scrapers en C# y AWS Lambda (Python); integración con bancos en Colombia, México y Chile; arquitectura hexagonal y Clean Architecture; observabilidad con Loki y Datadog.
 - Rappi (Delivery) — Sr. Backend Developer, remoto, Colombia (2021–2022). Microservicios de alta concurrencia en AdonisJS/TypeScript; event-driven con Apache Kafka; observabilidad con cAdvisor, Prometheus y Grafana; on-call con Opsgenie.
 - Business Development Group (Banca) — Analista Programador, Guatemala (2019–2021). Sistemas bancarios core (.NET, C#, WCF, SQL Server); clientes Cooperativa Génesis Empresarial, Grupo TRT y BAC Credomatic.
@@ -77,3 +79,11 @@ C#/.NET y .NET Core, TypeScript, JavaScript, Node.js (Express, NestJS, AdonisJS)
 ## Idiomas
 
 Español (nativo), Inglés (básico-intermedio).
+
+## URLs indexables
+
+Cada servicio y proyecto tiene una página propia con detalle completo (descripción, resultados, tecnologías y precio):
+
+- Servicios: https://jose16-21.github.io/servicios/<id> — ids: mcp-starter, fractional-tech-lead, web-app-development, mobile-app-development, devops-automation, observability-monitoring, cloud-architecture, legacy-modernization, ai-mcp-integration, tech-consulting, technical-training, api-development, open-banking-integration, e-invoicing-sat, ecommerce-solutions, cms-strapi-aws, iac-multi-cloud-terraform, hardening-devsecops, technical-training-advanced
+- Proyectos: https://jose16-21.github.io/proyectos/<slug> — slugs: sistema-gestion-empresarial-don-julio, plataforma-ecommerce-multi-cliente-quickcomm, gestion-facturacion-electronica-menoo, sistemas-financieros-creditos-banrural, ventanilla-unica-virtual-villa-nueva
+- Sitemap completo: https://jose16-21.github.io/sitemap.xml

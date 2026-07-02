@@ -1,5 +1,7 @@
 export interface Project {
   id: number;
+  /** Slug único usado en la URL indexable /proyectos/:slug */
+  slug: string;
   title: string;
   company: string;
   country: string;
