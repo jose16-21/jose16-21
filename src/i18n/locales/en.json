@@ -72,9 +72,11 @@
   "contact": {
     "title": "Ready to Work Together?",
     "subtitle": "Let's talk about your next technology project",
+    "whatsappPrefill": "Hi Juan José, I found your website and I'd like a proposal.",
     "info": {
       "email": "Email",
-      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "whatsappCta": "Send a message",
       "location": "Location",
       "availability": "Availability",
       "schedule": "Mon - Fri, 9:00 AM - 6:00 PM"

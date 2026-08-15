@@ -1,10 +1,25 @@
 import React, { useState, FormEvent, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaCheck, FaCopy, FaSpinner, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { IconType } from 'react-icons';
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaClock, FaCheck, FaCopy, FaSpinner, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { ClipboardUtils } from '../../utils';
 import { servicesData } from '../../data/services';
+import { CONTACT, whatsappLabel, whatsappUrl } from '../../data/contact';
 import { ServiceCategory } from '../../domain/entities/Service';
+
+interface ContactInfoItem {
+  icon: IconType;
+  titleKey: string;
+  /** Valor literal a mostrar. */
+  value?: string;
+  /** Clave i18n a mostrar, cuando el valor es traducible. */
+  valueKey?: string;
+  /** Si está presente, el valor se renderiza como enlace. */
+  href?: string;
+  /** Si es `true`, se muestra el botón de copiar al portapapeles. */
+  copyable?: boolean;
+}
 
 /** Mapea la categoría del servicio a las opciones del select del formulario. */
 const categoryToOption: Record<ServiceCategory, string> = {
@@ -187,16 +202,19 @@ const Contact: React.FC = () => {
     });
   };
 
-  const contactInfo = [
+  const contactInfo: ContactInfoItem[] = [
     {
       icon: FaEnvelope,
       titleKey: 'contact.info.email',
-      value: 'ju16jo@gmail.com'
+      value: CONTACT.email,
+      copyable: true
     },
     {
-      icon: FaPhone,
-      titleKey: 'contact.info.phone',
-      value: '+502 3132-2197'
+      icon: FaWhatsapp,
+      titleKey: 'contact.info.whatsapp',
+      // Mientras el username no resuelva se muestra el CTA en vez del handle.
+      value: CONTACT.useHandle ? whatsappLabel : t('contact.info.whatsappCta'),
+      href: whatsappUrl(t('contact.whatsappPrefill'))
     },
     {
       icon: FaMapMarkerAlt,
@@ -226,7 +244,16 @@ const Contact: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-semibold text-gray-900">{t(item.titleKey)}</h4>
-                  {(item.titleKey === 'contact.info.email' || item.titleKey === 'contact.info.phone') ? (
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-gray-600 no-underline transition-colors hover:text-primary"
+                    >
+                      {item.value}
+                    </a>
+                  ) : item.copyable ? (
                     <div className="flex items-center gap-2 relative group">
                       <p className="text-sm text-gray-600 m-0 cursor-pointer transition-colors hover:text-primary">{item.value}</p>
                       <button

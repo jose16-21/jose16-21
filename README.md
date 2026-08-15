@@ -3,7 +3,7 @@
 ## 📞 Información de Contacto
 
 - **Email:** ju16jo@gmail.com
-- **Teléfono:** +502 3132-2197
+- **WhatsApp:** https://wa.me/50231322197
 - **Ubicación:** Guatemala
 - **LinkedIn:** https://www.linkedin.com/in/juan-jose-hernandez-gt/
 - **GitHub:** https://github.com/jose16-21
