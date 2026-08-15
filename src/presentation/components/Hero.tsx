@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { FaPaperPlane, FaBriefcase, FaCheckCircle, FaEnvelope, FaLinkedinIn, FaGithub, FaWhatsapp, FaChevronDown } from 'react-icons/fa';
 
+import { whatsappLabel, whatsappUrl } from '../../data/contact';
+
 const Hero: React.FC = () => {
   const { t } = useTranslation();
   
@@ -144,8 +146,8 @@ const Hero: React.FC = () => {
                     <FaGithub aria-hidden="true" className="text-sm" />
                   </a>
                   <a
-                    href="https://wa.me/50231322197"
-                    aria-label="WhatsApp"
+                    href={whatsappUrl(t('contact.whatsappPrefill'))}
+                    aria-label={`WhatsApp: ${whatsappLabel}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all text-slate-500"

@@ -72,9 +72,11 @@
   "contact": {
     "title": "¿Listo para Trabajar Juntos?",
     "subtitle": "Conversemos sobre tu próximo proyecto tecnológico",
+    "whatsappPrefill": "Hola Juan José, vengo de tu sitio web y me interesa una propuesta.",
     "info": {
       "email": "Email",
-      "phone": "Teléfono",
+      "whatsapp": "WhatsApp",
+      "whatsappCta": "Enviar mensaje",
       "location": "Ubicación",
       "availability": "Disponibilidad",
       "schedule": "Lun - Vie, 9:00 AM - 6:00 PM"

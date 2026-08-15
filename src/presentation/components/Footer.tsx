@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaCheck, FaCopy } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaLinkedin, FaGithub, FaCheck, FaCopy } from 'react-icons/fa';
 import { ClipboardUtils } from '../../utils';
+import { CONTACT, whatsappLabel, whatsappUrl } from '../../data/contact';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -37,8 +38,8 @@ const Footer: React.FC = () => {
     {
       titleKey: 'footer.contact',
       links: [
-        { icon: <FaEnvelope />, text: 'ju16jo@gmail.com', href: 'mailto:ju16jo@gmail.com', copyable: true },
-        { icon: <FaPhone />, text: '+502 3132-2197', href: 'tel:+50231322197', copyable: true },
+        { icon: <FaEnvelope />, text: CONTACT.email, href: `mailto:${CONTACT.email}`, copyable: true },
+        { icon: <FaWhatsapp />, text: whatsappLabel, href: whatsappUrl(), copyable: false },
         { icon: <FaMapMarkerAlt />, text: 'Guatemala', href: null, copyable: false }
       ]
     }
@@ -77,6 +78,7 @@ const Footer: React.FC = () => {
                         {link.href ? (
                           <a
                             href={link.href}
+                            {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                             className="flex items-center gap-2 transition-colors hover:text-secondary font-light no-underline"
                           >
                             {link.icon} {link.text}
